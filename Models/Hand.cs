@@ -10,7 +10,6 @@ namespace Models
     {
         public List<Card> Cards { get; private set; }
         public int Bet { get; set; }
-
-        public bool IsSplit { get; set; }
+        public bool FromSplit { get; set; }
     }
 }

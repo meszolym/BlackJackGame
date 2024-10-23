@@ -13,6 +13,7 @@ namespace Models
     }
     public enum CardFace
     {
+        None = 0,
         Ace = 1,
         Two = 2,
         Three = 3,
@@ -30,6 +31,7 @@ namespace Models
 
     public enum CardSuit
     {
+        None,
         Spades,
         Hearts,
         Diamonds,

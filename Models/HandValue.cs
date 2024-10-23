@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class HandValue(int value, bool isBlackJack, bool isPair, bool isSoft)
+    public struct HandValue(int value, bool isBlackJack, bool isPair, bool isSoft)
     {
-        public int Value { get; private set; } = value;
-        public bool IsBlackJack { get; private set; } = isBlackJack;
-        public bool IsPair { get; private set; } = isPair;
-        public bool IsSoft { get; private set; } = isSoft;
+        public int Value { get; set; } = value;
+        public bool IsBlackJack { get; set; } = isBlackJack;
+        public bool IsPair { get; set; } = isPair;
+        public bool IsSoft { get; set; } = isSoft;
 
         public override string ToString() => this switch
         {
