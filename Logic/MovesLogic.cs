@@ -44,6 +44,33 @@ namespace Logic
 
         }
 
+        public void Hit(Hand hand, Shoe shoe)
+        {
+            if (!GetPossibleActions(hand).CanHit) throw new ArgumentOutOfRangeException(nameof(hand), "Move not possible");
 
+            hand.Cards.Add(shoe.CardQueue.Dequeue());
+        }
+
+        public void Double(Hand hand, Shoe shoe)
+        {
+            if (!GetPossibleActions(hand).CanDouble) throw new ArgumentOutOfRangeException(nameof(hand), "Move not possible");
+
+            hand.Bet *= 2;
+            hand.Cards.Add(shoe.CardQueue.Dequeue());
+        }
+
+        public void Split(Box box, Shoe shoe)
+        {
+            if (!GetPossibleActions(box.FirstHand).CanSplit) throw new ArgumentOutOfRangeException(nameof(box), "Move not possible");
+
+            box.SecondHand.Cards.Add(box.FirstHand.Cards[1]);
+            box.FirstHand.Cards.RemoveAt(1);
+            box.FirstHand.Cards.Add(shoe.CardQueue.Dequeue());
+
+            box.FirstHand.FromSplit = true;
+            box.SecondHand.FromSplit = true;
+
+            //after playing the first hand, the second hand has to be hit before playing!
+        }
     }
 }
