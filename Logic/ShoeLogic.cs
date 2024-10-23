@@ -7,7 +7,7 @@ using Models;
 
 namespace Logic
 {
-    public class ShoeLogic
+    public class ShoeLogic : IShoeLogic
     {
         private Random random;
 

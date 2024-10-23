@@ -9,7 +9,7 @@ using Models;
 
 namespace Logic
 {
-    public class MovesLogic(IValueLogic valueLogic)
+    public class MovesLogic(IValueLogic valueLogic) : IMovesLogic
     {
         private readonly IValueLogic _valueLogic = valueLogic;
 
